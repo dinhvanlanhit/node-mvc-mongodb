@@ -65,6 +65,17 @@ npm install
 ```bash
 npm run dev
 ```
-##License
+# Route web
+```
+    http://localhost:4200/
+
+```
+# Route api
+```
+    http://localhost:4200/api/auth/login => POST
+    http://localhost:4200/api/auth/register => POST
+    http://localhost:4200/api/auth/testoken => GET
+    
+```
+# License
 This project is open-sourced software licensed under the MIT License. See the LICENSE file for more information.
- 
