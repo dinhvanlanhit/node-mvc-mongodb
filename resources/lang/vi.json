@@ -1,0 +1,19 @@
+{
+	"Email": "Email",
+	"Password": "Mật khẩu",
+	"is not empty": "không được trống",
+	"No user associated with": "Không có người dùng nào liên quan đến",
+	"Login information is incorrect": "Thông tin đăng nhập không chính xác",
+	"Confirm creating account": "Xác nhận tạo tài khoản",
+	"Noreply": "Không trả lời",
+	"Must be an email": "Phải là một email",
+	"Must at least {min} characters": "Phải có ít nhất {min} ký tự",
+	"Maximum of {max} characters": "Tối đa {max} ký tự",
+	"Already exist": "Đã tồn tại",
+	"Sign Up Success":"Đăng ký thành công",
+	"Hello":"Xin chào",
+	"We have sent you a letter, please check the message to authenticate the account":"Chúng tôi đã gửi cho bạn một lá thư, xin vui lòng kiểm tra tin nhắn để xác thực tài khoản",
+	"Click":"Nhấp chuột",
+	"to activate your new account":"Để kích hoạt tài khoản mới của bạn",
+	"Successful account activation":"Kích hoạt tài khoản thành công"
+}

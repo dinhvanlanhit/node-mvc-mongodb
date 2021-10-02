@@ -1,0 +1,19 @@
+{
+	"Email":"Email",
+	"Password":"Password",
+	"is not empty": "is not empty",
+	"No user associated with":"No user associated with",
+	"Login information is incorrect":"Login information is incorrect",
+	"Confirm creating account":"Confirm creating account",
+	"Noreply":"Noreply",
+	"Must be an email":"Must be an email",
+	"Must at least {min} characters":"Must at least {min} characters",
+	"Maximum of {max} characters":"Maximum of {max} characters",
+	"Already exist": "Already exist",
+	"Sign Up Success":"Sign up Success",
+	"Hello":"Hello",
+	"We have sent you a letter, please check the message to authenticate the account":"We have sent you a letter, please check the message to authenticate the account",
+	"Click":"Click",
+	"to activate your new account":"to activate your new account",
+	"Successful account activation":"Successful account activation"
+}
