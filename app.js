@@ -10,8 +10,8 @@ const mongoose = require('./database/mongoose')
 const i18n = require('./config/i18n.js');
 const errorHandler = require('./app/http/middleware/error-handler');
 const passportJwt = require('./config/passport');
-const appRouter = require('./routes/app/index');
-const apiRouter = require('./routes/api/index');
+const appRouter = require('./app/routes/app/index');
+const apiRouter = require('./app/routes/api/index');
 const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'resources/views'));
