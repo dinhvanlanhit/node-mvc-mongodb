@@ -5,35 +5,41 @@ exports.makeJSON = (res,boolen)=>{
         statusCode:res.status,
         statusString:boolen,
         tatusNumber:boolen=='success'?0:1,
-        results:null,
-        message:null
     };
 }
 exports.returnSuccess=(req,res,results,message)=>{
-    let json = makeJSON(res,'success');
+    let json = this.makeJSON(res,'success');
+    json.results = {
+        data:null,
+        message:null
+    };
     if(typeof(results)=="object"){
-        json.results = results;
+        json.results.data = results;
     }else if(typeof(results)=="string"){
-        json.message = results;
+        json.results.message = results;
     }
     if(typeof(message)=="object"){
-        json.results = message;
+        json.results.data = message;
     }else if(typeof(message)=="string"){
-        json.message = message;
+        json.results.message = message;
     }
     return  json;
 }
 exports.returnError=(req,res,results,message)=>{
-    let json = makeJSON(res,'success');
+    let json = this.makeJSON(res,'success');
+    json.errors = {
+        data:null,
+        message:null
+    };
     if(typeof(results)=="object"){
-        json.results = results;
+        json.errors.data = results;
     }else if(typeof(results)=="string"){
-        json.message = results;
+        json.errors.message = results;
     }
     if(typeof(message)=="object"){
-        json.results = message;
+        json.errors.data = results;
     }else if(typeof(message)=="string"){
-        json.message = message;
+        json.errors.message = results;
     }
     return  json;
 }
