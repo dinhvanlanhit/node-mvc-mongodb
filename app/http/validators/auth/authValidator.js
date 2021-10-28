@@ -1,5 +1,5 @@
 const {check, validationResult} = require('express-validator');
-const User = require('../../../models/user.model')
+const User = require('../../../models/user/user.model')
 module.exports.loginValidator = [
         check('email').not().isEmpty().withMessage((value, { req, location, path }) => {
                 return  req.__('Email')+" : "+req.__('is not empty');

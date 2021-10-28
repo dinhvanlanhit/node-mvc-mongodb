@@ -1,18 +1,41 @@
 const transporter = require('../../config/transporter')
 const config = require('../../config/config')
-exports.rs=(status,data={})=>{
-    let rs= {
-        statusNumber:status==true?1:0,
-        statusBoolen:status,
-        status:status==true?'success':'error',
-        icon:status==true?'success':'danger',
+exports.makeJSON = (res,boolen)=>{
+    return {
+        statusCode:res.status,
+        statusString:boolen,
+        tatusNumber:boolen=='success'?0:1,
+        results:null,
+        message:null
+    };
+}
+exports.returnSuccess=(req,res,results,message)=>{
+    let json = makeJSON(res,'success');
+    if(typeof(results)=="object"){
+        json.results = results;
+    }else if(typeof(results)=="string"){
+        json.message = results;
     }
-    if(typeof data =='string'&&data!=null){
-        rs.message = data
-    }else{
-        rs.results = data;
+    if(typeof(message)=="object"){
+        json.results = message;
+    }else if(typeof(message)=="string"){
+        json.message = message;
     }
-    return rs;
+    return  json;
+}
+exports.returnError=(req,res,results,message)=>{
+    let json = makeJSON(res,'success');
+    if(typeof(results)=="object"){
+        json.results = results;
+    }else if(typeof(results)=="string"){
+        json.message = results;
+    }
+    if(typeof(message)=="object"){
+        json.results = message;
+    }else if(typeof(message)=="string"){
+        json.message = message;
+    }
+    return  json;
 }
 exports.sendMail = async (obj={})=>{
     if(obj.from==undefined){

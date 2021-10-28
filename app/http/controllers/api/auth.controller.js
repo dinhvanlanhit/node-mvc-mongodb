@@ -2,12 +2,12 @@
 const jwt = require('jsonwebtoken')
 const httpStatus = require('http-status')
 const { v4: uuidv4 } = require('uuid');
-const User = require('../../../models/user.model');
+const User = require('../../../models/user/user.model');
 const cm = require('../../../utils/common');
 const config = require('./../../../../config/config');
 exports.register = async (req, res, next) => {
   try {
-    let activationKey = uuidv4();
+    let activationKey = uuidv4()+uuidv4()+uuidv4();
     req.body.activationKey =activationKey;
     const user = new User(req.body)
     const savedUser = await user.save();
@@ -16,12 +16,12 @@ exports.register = async (req, res, next) => {
     const mail = await cm.sendMail({
        to:req.body.email,
        body:`
-        <div>
-          <h1>${req.__("Hello")}</h1>
-            <p>${req.__("Click")} 
-              <a href="${config.hostname}/api/auth/confirm?key=${activationKey}">link</a> ${req.__("to activate your new account")}.
-            </p>
-        </div>`
+       <div style="border: solid 1px #0008ff; padding: 15px; background-color: #eee;border-radius: 5px;">
+              <h4>${req.__("Hello")} : ${info.email}</h4>
+              <p>${req.__("Click")}
+                <a href="${ config.hostname}/api/auth/confirm?key=${activationKey}">link</a> ${req.__("to activate your new account")}.
+              </p>
+       </div>`
     });
     var rs = cm.rs(true);
     if(mail.status){
@@ -41,10 +41,12 @@ exports.login = async (req, res, next) => {
     const body = req.body;
     const user = await User.auth(body);
     if(user){
-      const payload = {
-        sub:user
-      }
-      const token = jwt.sign(payload, config.secret)
+      const token = jwt.sign({sub:{
+          _id:user._id,
+          name:user.name,
+          email:user.email,
+        } 
+      }, config.secret);
       const data={token:token,user:user};
       return res.json(cm.rs(true,data));
     }else{
@@ -66,6 +68,7 @@ exports.confirm = async (req, res, next) => {
     return res.json(cm.rs(false,error.message));
   }
 }
-exports.testtoken =async(req,res,next)=>{
-  res.json(cm.rs(true,"HELLO"))
+exports.testtoken =  (req,res,next)=>{
+  console.log(cm.rs(true,"HELLO"));
+  return res.json(cm.rs(true,"HELLO"))
 }

@@ -3,9 +3,7 @@ const httpStatus = require('http-status')
 // hanlde not found error
 exports.handleNotFound = (req, res, next) => {
   res.status(httpStatus.NOT_FOUND)
-  res.json({
-    'message': 'Requested resource not found'
-  })
+  res.json({'message': 'Requested resource not found'});
   res.end()
 }
 // handle errors

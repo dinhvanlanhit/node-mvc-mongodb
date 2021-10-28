@@ -4,14 +4,14 @@
   "description": "Node MVC",
   "main": "app.js",
   "scripts": {
-    "start": "node ./dist/bundle.js",
+    "start": "node ./bundle/bundle.js",
     "build": "webpack --config webpack.config.js",
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.2.1",
-    "bcrypt-nodejs": "0.0.3",
+    "babel-loader": "^8.2.2",
+    "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.7.2",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",

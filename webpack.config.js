@@ -3,9 +3,10 @@ module.exports = {
   entry: {
     server: "./app.js",
   },
+  mode: 'production',
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.join(__dirname, "build"),
+    filename: "webpack.bundle.js",
   },
   target: "node",
   module: {
