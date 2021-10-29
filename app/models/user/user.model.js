@@ -1,17 +1,20 @@
 'use strict'
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt-nodejs')
+const fields = ['_id','fullname','email', 'password', 'avatar','birthday','sex','address','active','activation_key']
 const userSchema = new mongoose.Schema(
     {
-        name:{type: String},
-        phone:{type: String},
-        email:{type: String},
-        password:{type: String},
-        avatar:{type: String},
-        active:{type: Boolean, default: false},
-        sex:{type: Boolean, default: 1},
-        address:{type: String},
-        activationKey:{type: String,default:null},
+       fullname:{type: String},
+       email:{type: String},
+       password:{type: String},
+       avatar:{type: String},
+       birthday:{type: String},
+       sex:{type: Boolean, default: 1},
+       address:{type: String},
+       active:{type: Boolean, default: false},
+       activationKey:{type: String,default:null},
+       remember_datetime:{type: String,default:null},
+       remember_value:{type: String,default:null},
     },
     {
         timestamps: true
@@ -42,7 +45,6 @@ userSchema.pre("findOneAndUpdate", async function findOneAndUpdate(next) {
 userSchema.method({
   transform () {
     const transformed = {}
-    const fields = ['id', 'name', 'email', 'active','createdAt']
     fields.forEach((field) => {
       transformed[field] = this[field]
     })
@@ -53,17 +55,16 @@ userSchema.method({
   },
 })
 userSchema.statics = {
-  async auth (body) {
-      const {email,password } = body;
-      const User = await this.findOne({ email }).exec();
+  async auth (payload) {
+      const {email,password} = payload;
+      const User = await this.findOne({email}).exec();
       if(User){
             const passwordTrue = await User.passwordMatches(password);
             if(passwordTrue){
-              return User.transform();
+                return User.transform();
             }else{
-              return false;
+                return false;
             }
-          
       }else{
         return false;
       }

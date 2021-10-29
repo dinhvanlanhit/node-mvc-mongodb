@@ -23,7 +23,7 @@ module.exports = {
         from: process.env.TRANSPORTER_FROM,
         username: process.env.TRANSPORTER_USERNAME,
         password: process.env.TRANSPORTER_PASSWORD,
-        mail_receive: process.env.TRANSPORTER_MAIL_RECEIVE,
+        receive: process.env.TRANSPORTER_MAIL_RECEIVE,
     },
     socialite:{
       FACEBOOK_APP_ID: process.env.FACEBOOK_APP_ID,

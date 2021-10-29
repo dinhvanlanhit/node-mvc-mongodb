@@ -1,7 +1,8 @@
 {
 	"Email":"Email",
 	"Password":"Password",
-	"is not empty": "is not empty",
+	"Successfully":"Successfully",
+	"Is not empty": "Is not empty",
 	"No user associated with":"No user associated with",
 	"Login information is incorrect":"Login information is incorrect",
 	"Confirm creating account":"Confirm creating account",
@@ -15,5 +16,9 @@
 	"We have sent you a letter, please check the message to authenticate the account":"We have sent you a letter, please check the message to authenticate the account",
 	"Click":"Click",
 	"to activate your new account":"to activate your new account",
-	"Successful account activation":"Successful account activation"
+	"Successful account activation":"Successful account activation",
+	"Please check the error": "Please check the error",
+	"Invalid authentication lock":"Invalid authentication lock",
+	"Click the link below to activate your account":"Click the link below to activate your account",
+	"The server cannot perform your operations at this time": "Máy chủ không thể thực hiện các hoạt động của bạn tại thời điểm này"
 }

@@ -22,23 +22,14 @@ app.use(cookieParser());
 app.use(bodyParser.json())
 app.use(cors())
 app.use(helmet())
+app.use(function (req, res, next) {
+    res.locals.__ = res.__;
+    mongoose.connect();
+    common.responseCustom(req, res, next);
+});
 app.set('views', path.join(__dirname, 'resources/views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function (req, res, next) {
-    mongoose.connect();
-    res.success = function(data=null,msg=null){
-       return res.json(common.returnSuccess(req, res,data,msg));
-    }
-    res.error = function(data=null,msg=null){
-        return res.json(common.returnError(req, res,data,msg));
-    }
-    let lang = req.headers["lang"];
-    if (lang == "vi" || lang == "en"){ 
-        lang = lang;req.setLocale(lang);
-    }
-    next();
-});
 app.use(passport.initialize());
 app.use('/', appRouter);
 app.use('/api', apiRouter);
@@ -51,4 +42,5 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+
 module.exports = app;

@@ -5,5 +5,6 @@ i18n.configure({
     locales: ["en", "vi"],
     defaultLocale: config.defaultLocale,
     directory: path.join("./", "resources/lang"),
+    cookie: 'lang'
 });
 module.exports = i18n;

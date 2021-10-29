@@ -1,7 +1,8 @@
 {
 	"Email": "Email",
 	"Password": "Mật khẩu",
-	"is not empty": "không được trống",
+	"Successfully":"Thành công",
+	"Is not empty": "không được trống",
 	"No user associated with": "Không có người dùng nào liên quan đến",
 	"Login information is incorrect": "Thông tin đăng nhập không chính xác",
 	"Confirm creating account": "Xác nhận tạo tài khoản",
@@ -10,10 +11,14 @@
 	"Must at least {min} characters": "Phải có ít nhất {min} ký tự",
 	"Maximum of {max} characters": "Tối đa {max} ký tự",
 	"Already exist": "Đã tồn tại",
-	"Sign Up Success":"Đăng ký thành công",
-	"Hello":"Xin chào",
-	"We have sent you a letter, please check the message to authenticate the account":"Chúng tôi đã gửi cho bạn một lá thư, xin vui lòng kiểm tra tin nhắn để xác thực tài khoản",
-	"Click":"Nhấp chuột",
-	"to activate your new account":"Để kích hoạt tài khoản mới của bạn",
-	"Successful account activation":"Kích hoạt tài khoản thành công"
+	"Sign Up Success": "Đăng ký thành công",
+	"Hello": "Xin chào",
+	"We have sent you a letter, please check the message to authenticate the account": "Chúng tôi đã gửi cho bạn một lá thư, xin vui lòng kiểm tra tin nhắn để xác thực tài khoản",
+	"Click": "Nhấp chuột",
+	"to activate your new account": "Để kích hoạt tài khoản mới của bạn",
+	"Successful account activation": "Kích hoạt tài khoản thành công",
+	"Please check the error": "Vui lòng kiểm tra lỗi",
+	"Invalid authentication lock":"Khóa xác thực không hơp lệ",
+	"Click the link below to activate your account":"Nhấp vào liên kết bên dưới để kích hoạt tài khoản của bạn",
+	"The server cannot perform your operations at this time": "Máy chủ không thể thực hiện các hoạt động của bạn tại thời điểm này"
 }

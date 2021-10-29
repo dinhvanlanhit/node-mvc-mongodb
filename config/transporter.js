@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer')
 const config = require('./config')
-// console.log(config.transporter);
 const transporter = nodemailer.createTransport({
   service: config.transporter.service,
   host:config.transporter.host,
@@ -11,5 +10,4 @@ const transporter = nodemailer.createTransport({
     pass: config.transporter.password
   }
 })
-
 module.exports = transporter
