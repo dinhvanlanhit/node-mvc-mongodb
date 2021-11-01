@@ -20,5 +20,7 @@
 	"Please check the error": "Please check the error",
 	"Invalid authentication lock":"Invalid authentication lock",
 	"Click the link below to activate your account":"Click the link below to activate your account",
-	"The server cannot perform your operations at this time": "Máy chủ không thể thực hiện các hoạt động của bạn tại thời điểm này"
+	"The server cannot perform your operations at this time": "Máy chủ không thể thực hiện các hoạt động của bạn tại thời điểm này",
+	"Welcome":"Welcome",
+	"Confirm Account":"Confirm Account"
 }

@@ -1,13 +1,13 @@
 'use strict'
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt-nodejs')
-const fields = ['_id','fullname','email', 'password', 'avatar','birthday','sex','address','active','activation_key']
 const userSchema = new mongoose.Schema(
     {
-       fullname:{type: String},
+       phone:{type: String},
        email:{type: String},
        password:{type: String},
        avatar:{type: String},
+       fullname:{type: String},
        birthday:{type: String},
        sex:{type: Boolean, default: 1},
        address:{type: String},
@@ -43,13 +43,6 @@ userSchema.pre("findOneAndUpdate", async function findOneAndUpdate(next) {
   }
 });
 userSchema.method({
-  transform () {
-    const transformed = {}
-    fields.forEach((field) => {
-      transformed[field] = this[field]
-    })
-    return transformed
-  },
   passwordMatches (password) {
     return bcrypt.compareSync(password, this.password)
   },
@@ -57,11 +50,13 @@ userSchema.method({
 userSchema.statics = {
   async auth (payload) {
       const {email,password} = payload;
-      const User = await this.findOne({email}).exec();
+      const User = await this.findOne({email}).exec()
       if(User){
             const passwordTrue = await User.passwordMatches(password);
+            let userInfo = User.toJSON();
             if(passwordTrue){
-                return User.transform();
+                delete userInfo.password;
+                return userInfo;
             }else{
                 return false;
             }

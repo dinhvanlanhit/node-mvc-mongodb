@@ -23,8 +23,8 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(helmet())
 app.use(function (req, res, next) {
-    res.locals.__ = res.__;
     mongoose.connect();
+    res.locals.__ = res.__;
     common.responseCustom(req, res, next);
 });
 app.set('views', path.join(__dirname, 'resources/views'));

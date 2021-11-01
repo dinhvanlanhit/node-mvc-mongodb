@@ -13,6 +13,8 @@ exports.register = async (req, res, next) => {
         template:{
           path:"mailRegister.ejs",
           data:{
+            ConfirmAccount:req.__('Confirm Account'),
+            Welcome:req.__('Welcome'),
             title:req.__("Click the link below to activate your account"),
             link:link,
             fullname:payload.fullname
