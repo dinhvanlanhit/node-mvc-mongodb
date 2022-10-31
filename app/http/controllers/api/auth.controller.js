@@ -7,8 +7,8 @@ const config = require('./../../../../config/config');
 exports.register = async (req, res, next) => {
   try {
       let payload = req.body;
-      payload.activationKey = uuidv4()+uuidv4()+uuidv4();
-      const link = `${config.app.hostname}/api/auth/account-verification?activationKey=${payload.activationKey}`;
+      payload.remember_verified_token = uuidv4()+uuidv4()+uuidv4();
+      const link = `${config.app.hostname}/api/auth/account-verification?activationKey=${payload.remember_verified_token}`;
       const sendMail = await common.sendMail({
         template:{
           path:"mailRegister.ejs",
@@ -22,7 +22,7 @@ exports.register = async (req, res, next) => {
         },
         to:payload.email
       });
-      if(sendMail.error){
+      if(sendMail.error==false){
         const user = new User(payload);
         const savedUser = await user.save();
         return res.success(savedUser,req.__("LANG_00015"));
@@ -49,7 +49,7 @@ exports.login = async (req, res, next) => {
 }
 exports.confirm = async (req, res, next) => {
   try {
-    const user = await User.findOneAndUpdate(
+    const user = await User.findToken(
         { 'activationKey': req.query.key },
         { 'active': true,'activationKey': null }
     );
